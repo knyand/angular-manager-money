@@ -1,0 +1,39 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <mat-toolbar>
+      <span class="fill-remaining-space"></span>
+
+      <button mat-icon-button color="primary" aria-label="Close" (click)="sidenav.close()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/system/bill">Bill</a>
+      <a mat-list-item routerLink="/system/history">History</a>
+      <a mat-list-item routerLink="/system/planning">Planning</a>
+      <a mat-list-item routerLink="/system/records">Records</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary">
+    <button mat-icon-button aria-label="Menu" (click)="sidenav.open()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="fill-remaining-space"></span>
+
+    <h1>{{title}}</h1>
+
+    <span class="fill-remaining-space"></span>
+
+    <span>{{userName}}</span>
+    <button mat-icon-button routerLink="/login" (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>

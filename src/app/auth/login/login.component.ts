@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
         response => {
           localStorage.setItem('user', JSON.stringify(response));
           this.message = '';
-          this.router.navigate(['/']);
+          this.router.navigate(['/system', 'bill']);
         },
         error => {
           console.error(error);

@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title>Currencies</mat-card-title>
+  <mat-card-content>
+    <table mat-table [dataSource]="currencies">
+      <ng-container matColumnDef="cur">
+        <th mat-header-cell *matHeaderCellDef>Currency </th>
+        <td mat-cell *matCellDef="let elem">{{elem.cur}}</td>
+      </ng-container>
+      <ng-container matColumnDef="rate">
+        <th mat-header-cell *matHeaderCellDef>Rate </th>
+        <td mat-cell *matCellDef="let elem">{{elem.rate}}</td>
+      </ng-container>
+      <ng-container matColumnDef="scale">
+        <th mat-header-cell *matHeaderCellDef>Scale </th>
+        <td mat-cell *matCellDef="let elem">{{elem.scale}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>

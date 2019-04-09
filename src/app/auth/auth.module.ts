@@ -5,7 +5,7 @@ import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {AuthRoutingModule} from './auth-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule, MatInputModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,6 @@ import {MatButtonModule, MatCardModule, MatCheckboxModule, MatIconModule, MatInp
     MatInputModule,
     MatIconModule,
     MatButtonModule,
-    MatCheckboxModule,
     MatCardModule
   ]
 })

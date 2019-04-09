@@ -17,7 +17,7 @@ export class UserService {
       authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
     });
 
-    return this.http.get(`${this.host}?email=${credentials.username}`, {headers});
+    return this.http.get(`${this.host}?email=${credentials.username}`, {headers, withCredentials: true});
   }
 
   registration(credentials): Observable<any> {
@@ -27,5 +27,13 @@ export class UserService {
       password: credentials.password,
       enabled: credentials.enabled
     });
+  }
+
+  logout() {
+    localStorage.removeItem('user');
+  }
+
+  getUserFromLocalStorage() {
+    return JSON.parse(localStorage.getItem('user'));
   }
 }

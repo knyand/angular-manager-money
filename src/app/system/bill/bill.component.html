@@ -1,0 +1,16 @@
+<mat-toolbar>
+  <h3>Bill</h3>
+  <span class="fill-remaining-space"></span>
+  <span>{{date | date: 'dd MMMM yyyy' | lowercase}}</span>
+  <span class="fill-remaining-space"></span>
+  <button mat-icon-button (click)="refresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</mat-toolbar>
+<span *ngIf="!isLoaded">Loading...</span>
+<div class="card-context">
+  <hm-bill-card [accounts]="accounts"></hm-bill-card>
+</div>
+<div class="card-context">
+  <hm-currency-card [currencies]="currencies"></hm-currency-card>
+</div>

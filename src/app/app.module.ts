@@ -5,8 +5,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthModule} from './auth/auth.module';
-import {MatToolbarModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
+import {SystemModule} from './system/system.module';
 
 @NgModule({
   declarations: [
@@ -17,10 +17,11 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     AuthModule,
-    MatToolbarModule,
+    SystemModule,
     HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
