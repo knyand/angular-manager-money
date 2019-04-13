@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-Backend server can be found here `https://github.com/z-ank/manager-money`
+Backend server can be found here [Manager money](https://github.com/z-ank/manager-money)
 
 ## Code scaffolding
 
