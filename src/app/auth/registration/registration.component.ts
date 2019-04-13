@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
-import {UserService} from '../../service/user.service';
+import {UserService} from '../shared/user.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -45,8 +45,7 @@ export class RegistrationComponent implements OnInit {
       enabled: true
     })
       .subscribe(
-        (res) => {
-          console.log(res);
+        () => {
           this.message = '';
           this.router.navigate(['/login']);
         },

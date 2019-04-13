@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AccountModel} from '../../../model/account.model';
+import {AccountModel} from '../../../shared/account.model';
 
 @Component({
   selector: 'hm-bill-card',

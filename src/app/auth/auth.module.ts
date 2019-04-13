@@ -5,7 +5,8 @@ import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {AuthRoutingModule} from './auth-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatButtonModule, MatCardModule, MatIconModule, MatInputModule} from '@angular/material';
+import {UserService} from './shared/user.service';
+import {SharedModule} from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,10 @@ import {MatButtonModule, MatCardModule, MatIconModule, MatInputModule} from '@an
     AuthRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule
+    SharedModule
+  ],
+  providers: [
+    UserService
   ]
 })
 export class AuthModule { }

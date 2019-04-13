@@ -7,32 +7,29 @@ import {BillComponent} from './bill/bill.component';
 import {HistoryComponent} from './history/history.component';
 import {PlanningComponent} from './planning/planning.component';
 import {RecordsComponent} from './records/records.component';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatGridListModule,
-  MatIconModule,
-  MatListModule,
-  MatSidenavModule, MatTableModule,
-  MatToolbarModule
-} from '@angular/material';
-import { BillCardComponent } from './bill/bill-card/bill-card.component';
-import { CurrencyCardComponent } from './bill/currency-card/currency-card.component';
+import {BillCardComponent} from './bill/bill-card/bill-card.component';
+import {CurrencyCardComponent} from './bill/currency-card/currency-card.component';
+import {SharedModule} from '../shared/shared.module';
+import {BillService} from './shared/bill.service';
 
 @NgModule({
+  declarations: [
+    SystemComponent,
+    BillComponent,
+    HistoryComponent,
+    PlanningComponent,
+    RecordsComponent,
+    BillCardComponent,
+    CurrencyCardComponent
+  ],
   imports: [
     CommonModule,
     SystemRoutingModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatListModule,
-    MatIconModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatTableModule
+    SharedModule
   ],
-  declarations: [SystemComponent, BillComponent, HistoryComponent, PlanningComponent, RecordsComponent, BillCardComponent, CurrencyCardComponent]
+  providers: [
+    BillService
+  ]
 })
 export class SystemModule {
 }

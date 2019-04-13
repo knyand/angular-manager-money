@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../service/user.service';
+import {UserService} from '../auth/shared/user.service';
 
 @Component({
   selector: 'hm-system',
