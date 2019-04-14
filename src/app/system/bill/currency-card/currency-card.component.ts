@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CurrencyModel} from '../../../shared/currency.model';
+import {CurrencyModel} from '../../../shared/model/currency.model';
 
 @Component({
   selector: 'hm-currency-card',

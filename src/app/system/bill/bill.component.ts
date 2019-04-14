@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {BillService} from '../shared/bill.service';
-import {CurrencyModel} from '../../shared/currency.model';
+import {CurrencyModel} from '../../shared/model/currency.model';
 import {combineLatest, Subscription} from 'rxjs';
 import {UserService} from '../../auth/shared/user.service';
-import {AccountModel} from '../../shared/account.model';
+import {AccountModel} from '../../shared/model/account.model';
 
 @Component({
   selector: 'hm-bill',

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {merge, Observable} from 'rxjs';
 import {map, toArray} from 'rxjs/operators';
-import {CurrencyModel} from '../../shared/currency.model';
+import {CurrencyModel} from '../../shared/model/currency.model';
 
 @Injectable()
 export class BillService {
