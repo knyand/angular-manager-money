@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {User} from '../../shared/model/user.model';
 
 @Injectable()
 export class UserService {
@@ -10,18 +11,18 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  authenticate(credentials): Observable<any> {
+  authenticate(credentials: User): Observable<User> {
     const headers = new HttpHeaders({
-      authorization: 'Basic ' + btoa(credentials.username + ':' + credentials.password)
+      authorization: 'Basic ' + btoa(credentials.email + ':' + credentials.password)
     });
 
-    return this.http.get(`${this.host}?email=${credentials.username}`, {headers, withCredentials: true});
+    return this.http.get<User>(`${this.host}?email=${credentials.email}`, {headers, withCredentials: true});
   }
 
-  registration(credentials): Observable<any> {
-    return this.http.post(`${this.host}`, {
+  registration(credentials: User): Observable<User> {
+    return this.http.post<User>(`${this.host}`, {
       email: credentials.email,
-      name: credentials.username,
+      name: credentials.name,
       password: credentials.password,
       enabled: credentials.enabled
     });

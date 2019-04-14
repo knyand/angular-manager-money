@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../shared/user.service';
 import {Router} from '@angular/router';
 
@@ -10,44 +10,45 @@ import {Router} from '@angular/router';
 })
 export class RegistrationComponent implements OnInit {
   hidePassword = true;
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
-  name = new FormControl('', [Validators.required]);
   message = '';
+  userForm: FormGroup;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
   }
 
   ngOnInit() {
+    this.userForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      name: ['', Validators.required],
+      enabled: true
+    });
   }
 
   getErrorMessageEmail() {
-    return this.email.hasError('required') ? 'You must enter a value' :
-      this.email.hasError('email') ? 'Not a valid email' :
+    return this.userForm.get('email').hasError('required') ? 'You must enter a value' :
+      this.userForm.get('email').hasError('email') ? 'Not a valid email' :
         '';
   }
 
   getErrorMessageName() {
-    return this.name.hasError('required') ? 'You must enter a value' :
+    return this.userForm.get('name').hasError('required') ? 'You must enter a value' :
       '';
   }
 
   getErrorMessagePassword() {
-    return this.password.hasError('required') ? 'You must enter a value' :
+    return this.userForm.get('password').hasError('required') ? 'You must enter a value' :
       '';
   }
 
   onSubmit() {
-    this.userService.registration({
-      email: this.email.value,
-      username: this.name.value,
-      password: this.password.value,
-      enabled: true
-    })
+    this.userService.registration(this.userForm.value)
       .subscribe(
         () => {
           this.message = '';
-          this.router.navigate(['/login']);
+          this.router.navigate(['/login']).catch(
+            error => console.log(error)
+          );
         },
         error => {
           console.error(error);
