@@ -1,14 +1,16 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {User} from '../../shared/model/user.model';
+import {API_BASE_URL} from '../../shared/app.config';
 
 @Injectable()
 export class UserService {
 
-  private host = '//localhost:9090/users';
+  private readonly host: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, @Inject(API_BASE_URL) private baseUrl: string) {
+    this.host = `${baseUrl}/users`;
   }
 
   authenticate(credentials: User): Observable<User> {

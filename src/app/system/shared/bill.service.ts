@@ -1,14 +1,16 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {merge, Observable} from 'rxjs';
 import {map, toArray} from 'rxjs/operators';
 import {CurrencyModel} from '../../shared/model/currency.model';
+import {API_BASE_URL} from '../../shared/app.config';
 
 @Injectable()
 export class BillService {
-  private host = '//localhost:9090/users';
+  private readonly host: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, @Inject(API_BASE_URL) private baseUrl: string) {
+    this.host = `${baseUrl}/users`;
   }
 
   getUserAccounts(id: string): Observable<any> {
