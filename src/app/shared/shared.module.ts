@@ -10,11 +10,13 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     MatCardModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -26,6 +28,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     MatInputModule
   ],
   exports: [
+    ReactiveFormsModule,
     MatCardModule,
     MatSidenavModule,
     MatToolbarModule,

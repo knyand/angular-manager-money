@@ -1,0 +1,14 @@
+<mat-card>
+  <mat-card-title>Add category</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput placeholder="Category" formControlName="categoryName" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Limit" type="number" formControlName="limit">
+      </mat-form-field>
+      <button mat-flat-button color="primary" [disabled]="categoryForm.invalid">Create</button>
+    </form>
+  </mat-card-content>
+</mat-card>

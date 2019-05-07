@@ -4,7 +4,7 @@ import {AuthComponent} from './auth.component';
 import {LoginComponent} from './login/login.component';
 import {RegistrationComponent} from './registration/registration.component';
 import {AuthRoutingModule} from './auth-routing.module';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
 import {UserService} from './shared/user.service';
 import {SharedModule} from '../shared/shared.module';
 
@@ -17,7 +17,6 @@ import {SharedModule} from '../shared/shared.module';
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule,
     FormsModule,
     SharedModule
   ],

@@ -11,6 +11,8 @@ import {BillCardComponent} from './bill/bill-card/bill-card.component';
 import {CurrencyCardComponent} from './bill/currency-card/currency-card.component';
 import {SharedModule} from '../shared/shared.module';
 import {BillService} from './shared/bill.service';
+import {AddCategoryComponent} from './records/add-category/add-category.component';
+import {CategoryService} from './shared/category.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import {BillService} from './shared/bill.service';
     PlanningComponent,
     RecordsComponent,
     BillCardComponent,
-    CurrencyCardComponent
+    CurrencyCardComponent,
+    AddCategoryComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +31,8 @@ import {BillService} from './shared/bill.service';
     SharedModule
   ],
   providers: [
-    BillService
+    BillService,
+    CategoryService
   ]
 })
 export class SystemModule {
