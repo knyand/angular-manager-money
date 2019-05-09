@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {CategoryService} from '../../shared/category.service';
-import {Category} from '../../../shared/model/category.model';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CategoryService } from '../../shared/category.service';
+import { Category } from '../../../shared/model/category.model';
 
 @Component({
   selector: 'hm-add-category',
@@ -9,6 +9,7 @@ import {Category} from '../../../shared/model/category.model';
   styleUrls: ['./add-category.component.scss']
 })
 export class AddCategoryComponent implements OnInit {
+  @Output() onAddCategory = new EventEmitter<Category>();
   categoryForm: FormGroup;
 
   constructor(private fb: FormBuilder, private categoryService: CategoryService) {
@@ -22,6 +23,10 @@ export class AddCategoryComponent implements OnInit {
   }
 
   onSubmit() {
-    this.categoryService.save(this.categoryForm.value).subscribe();
+    this.categoryService.save(this.categoryForm.value)
+      .subscribe((category: Category) => {
+        this.categoryForm.reset();
+        this.onAddCategory.emit(category);
+      });
   }
 }
