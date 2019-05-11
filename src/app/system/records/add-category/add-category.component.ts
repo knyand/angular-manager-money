@@ -9,7 +9,7 @@ import { Category } from '../../../shared/model/category.model';
   styleUrls: ['./add-category.component.scss']
 })
 export class AddCategoryComponent implements OnInit {
-  @Output() onAddCategory = new EventEmitter<Category>();
+  @Output() addCategory = new EventEmitter<Category>();
   categoryForm: FormGroup;
 
   constructor(private fb: FormBuilder, private categoryService: CategoryService) {
@@ -26,7 +26,7 @@ export class AddCategoryComponent implements OnInit {
     this.categoryService.save(this.categoryForm.value)
       .subscribe((category: Category) => {
         this.categoryForm.reset();
-        this.onAddCategory.emit(category);
+        this.addCategory.emit(category);
       });
   }
 }
